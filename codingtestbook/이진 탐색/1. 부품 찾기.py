@@ -1,8 +1,6 @@
 def binary_search(arr, target, start, end):
     while start <= end:
-        if start > end:
-            print("no", end=' ')
-            return
+
         mid = (start + end) // 2
 
         if arr[mid] == target:
