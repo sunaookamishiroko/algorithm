@@ -7,12 +7,15 @@ info = []
 
 for i in range(n):
     arr.append(list(map(int, input().split())))
+    # 바이러스 정보를 저장
     for j in range(n):
         if arr[i][j] != 0:
+            # 바이러스 숫자, 초, y, x
             info.append((arr[i][j], 0, i, j))
 
 s, x, y = map(int, input().split())
 
+# 바이러스 숫자 기준으로 정렬
 info.sort()
 
 dy = [-1, 1, 0, 0]
