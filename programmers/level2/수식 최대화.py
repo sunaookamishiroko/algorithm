@@ -24,31 +24,22 @@ def solution(expression):
         for op in order:
             templist = []
             flag = False
-            isnear = False
             for idx in range(len(temp)):
                 if flag:
                     flag = False
                     continue
 
                 if temp[idx] == op:
-                    rightoperand = temp[idx + 1]
-                    if isnear:
-                        leftoperand = templist.pop()
-                    else:
-                        templist.pop()
-                        leftoperand = temp[idx - 1]
 
                     if temp[idx] == '+':
-                        value = leftoperand + rightoperand
+                        value = templist.pop() + temp[idx + 1]
                     elif temp[idx] == '-':
-                        value = leftoperand - rightoperand
+                        value = templist.pop() - temp[idx + 1]
                     else:
-                        value = leftoperand * rightoperand
+                        value = templist.pop() * temp[idx + 1]
                     templist.append(value)
                     flag = True
-                    isnear = True
                 else:
-                    isnear = False
                     templist.append(temp[idx])
 
             temp = templist.copy()
